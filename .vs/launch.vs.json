@@ -8,6 +8,13 @@
       "project": "CMakeLists.txt",
       "projectTarget": "CuboidEngine.dll (CuboidEngine\\CuboidEngine.dll)",
       "name": "CuboidEngine.dll (CuboidEngine\\CuboidEngine.dll)"
+    },
+    {
+      "type": "dll",
+      "exe": "",
+      "project": "CMakeLists.txt",
+      "projectTarget": "cuboid_engine.dll (cuboid_engine\\cuboid_engine.dll)",
+      "name": "cuboid_engine.dll (cuboid_engine\\cuboid_engine.dll)"
     }
   ]
 }

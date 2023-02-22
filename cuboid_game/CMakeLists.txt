@@ -20,10 +20,8 @@ include_directories(${PROJECT_NAME}
 )
 
 #add exec
-add_executable (${PROJECT_NAME} "cuboid_game.cpp")
+add_executable(${PROJECT_NAME} "cuboid_game.cpp")
 
-target_link_directories(${PROJECT_NAME}
-    PRIVATE ${CUBOID_ENGINE_OUT_DIR})
+target_link_directories(${PROJECT_NAME} PRIVATE ${CUBOID_ENGINE_OUT_DIR})
 
-target_link_libraries(${PROJECT_NAME}
-    PRIVATE cuboid_engine)
+target_link_libraries(${PROJECT_NAME} PRIVATE cuboid_engine)

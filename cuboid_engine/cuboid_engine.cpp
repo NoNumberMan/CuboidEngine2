@@ -1,25 +1,44 @@
 ﻿#include "cuboid_engine.h"
 
+#include <cassert>
+
 #include "glad/glad.h"
 #include "GLFW/glfw3.h"
 
 #include <cstdio>
+#include <exception>
 
-void create_window() {
-	glfwInit();
-	GLFWwindow* w = glfwCreateWindow(512, 512, "ello", nullptr, nullptr);
-	glfwMakeContextCurrent(w);
+#define CE_OK 0
+#define CE_GLFW_INIT_ERROR 1
+#define CE_GLAD_INIT_ERROR 2
 
-	int version = gladLoadGL();
-	if (version == 0) {
-		printf("Failed to initialize OpenGL context\n");
-		return;
-	}
-	else printf("hi3\n");
+namespace ce {
 
-	while(!glfwWindowShouldClose( w )) {
-		glfwPollEvents();
+	namespace internal {
+		GLFWwindow* window = nullptr;
 	}
 
-	glfwTerminate();
+	int create_window() {
+		using namespace internal;
+
+		assert(window == nullptr && "Window already exists!");
+
+		if (!glfwInit()) return CE_GLFW_INIT_ERROR;
+		window = glfwCreateWindow(512, 512, "hello", nullptr, nullptr);
+		glfwMakeContextCurrent(window);
+
+		if (!gladLoadGL()) return CE_GLAD_INIT_ERROR;
+
+		while (!glfwWindowShouldClose(window)) {
+			glfwPollEvents();
+		}
+
+		glfwTerminate();
+
+		return CE_OK;
+	}
+
 }
+
+
+

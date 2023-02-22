@@ -13,5 +13,5 @@ void print(const std::string_view str, const Types&... args) {
 
 int main() {
 	print("Inc of {0} = {1}!\n", 1, Inc<1>());
-	create_window();
+	ce::create_window();
 }
