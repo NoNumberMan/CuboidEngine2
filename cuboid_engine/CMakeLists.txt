@@ -26,7 +26,7 @@ include_directories(${project_name}
 find_package(OpenGL REQUIRED)
 
 #add exec
-add_library (${PROJECT_NAME} SHARED "cuboid_engine.cpp" "cuboid_engine.h" "glad/glad.c")
+add_library (${PROJECT_NAME} SHARED "cuboid_engine.cpp" "cuboid_engine.h" "glad/glad.c"  "logger.cpp" "logger.h")
 
 target_link_libraries(${PROJECT_NAME} PRIVATE glfw)
 
